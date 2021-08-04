@@ -1,0 +1,19 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+$order = $block->getOrder();
+?>
+
+
+<fieldset class="fieldset admin__fieldset-wrapper">
+    <legend class="legend admin__legend">
+        <span><?= $block->escapeHtml($block->getHeaderText()) ?></span>
+    </legend>
+    <br>
+    <div class="form-inline">
+        <?= $block->getForm()->toHtml() ?>
+    </div>
+
+</fieldset>

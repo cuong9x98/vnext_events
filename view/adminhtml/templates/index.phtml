@@ -1,0 +1,36 @@
+<?php
+/** @var \AHT\CustomCheckout\Block\Adminhtml\Order\Delivery $block */
+$deliveryInfo = $block->getDeliveryInfo();
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$FormKey = $objectManager->get('Magento\Framework\Data\Form\FormKey');
+?>
+
+<section class="admin__page-section">
+    <div class="admin__page-section-title">
+        <span class="title"><?= __('Delivery info')?></span>
+    </div>
+    <div class="admin__page-section-content">
+        <div class="admin__page-section-item">
+            <div class="admin__page-section-item-title">
+                <span class="title"><?= __('Delivery date')?></span>
+                <div class="actions"><?=  $block->getEditLink(); ?></div>
+            </div>
+            <div class="admin__page-section-item-content">
+                <!-- code here -->
+                <?php
+                $date = new DateTime($deliveryInfo->getDeliveryData());
+                echo $date->format('d/m/Y');
+                ?>
+            </div>
+        </div>
+        <div class="admin__page-section-item">
+            <div class="admin__page-section-item-title">
+                <span class="title"><?= __('Delivery comment')?></span>
+            </div>
+            <div class="admin__page-section-item-content">
+                <!-- code here -->
+                <?= $deliveryInfo->getDeliveryComment()?>
+            </div>
+        </div>
+    </div>
+</section>
